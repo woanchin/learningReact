@@ -7,7 +7,7 @@
     "example": "examples"
   },
   "scripts": {
-    "start": "./node_modules/.bin/webpack-dev-server --content-base . --inline --hot",
+    "start": "webpack-dev-server --content-base . --inline --hot",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -32,8 +32,11 @@
     "babel-preset-stage-0": "^6.5.0"
   },
   "dependencies": {
+    "bootstrap-without-jquery": "^1.0.4",
+    "history": "^1.17.0",
     "react": "^15.3.0",
     "react-dom": "^15.3.0",
+    "react-router": "^2.6.1",
     "webpack": "^1.13.1",
     "webpack-dev-server": "^1.14.1"
   }
