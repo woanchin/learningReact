@@ -1,26 +1,36 @@
 import React from "react";
 import { Link }from "react-router";
 
-class Layout extends React.Component {
-	navigate() {
-		this.context.router.push("/");
+import Footer from "../components/layout/Footer";
+import Nav from "../components/layout/Nav";
+
+export default class Layout extends React.Component {
+	constructor(props) {
+		super(props);
 	}
 	
 	render() {
+		const { location } = this.props;
+		const containerStyle = {
+			marginTop: "60px"
+		};
+		
 		return (
 			<div>
-				<h1>Getting React Router right (versions 2.6.1)</h1>
-				{this.props.children}
-				<Link to="archives" activeClassName="test"><button class="btn btn-danger">archives</button></Link>
-				<Link to="settings"><button class="btn btn-success">settings</button></Link>
-				<button onClick={this.navigate.bind(this)}>featured</button>
-			</div>
+				<Nav location={ location } />
+				
+				<div className="container" style={containerStyle}>
+					<div className="row">
+						<div className="col-lg-12">
+							<h1>Getting React Router right (versions 2.6.1)</h1>
+							
+							{this.props.children}
+						
+						</div>
+					</div>
+					<Footer />
+				</div>
+			</div>		
 		);
 	}
 }
-
-Layout.contextTypes = {
-	router: React.PropTypes.func.isRequired
-};
-
-export default Layout;
